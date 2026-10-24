@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   inputs:
     browser:
-      descripition: 'Escolha o navegador de sua preferência para os testes (chromium,firefox,webkit)'
+      description: 'Escolha o navegador de sua preferência para os testes (chromium,firefox,webkit)'
       required: true
       default: 'chromium'
 jobs:
@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium ${{ github.event.inputs.browser }}
+        run: npx playwright install --with-deps ${{ github.event.inputs.browser }}
 
       - name: Run E2E tests
         run: npx playwright test --project=${{ github.event.inputs.browser }}
