@@ -1,11 +1,14 @@
-name: E2E Test
+name: E2E Tests
+
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
-  inputs:
-    browser:
-      description: 'Escolha o navegador de sua preferência para os testes (chromium,firefox,webkit)'
-      required: true
-      default: 'chromium'
+    inputs:
+      browser:
+        description: 'Escolha o navegador de sua preferência para os testes (chromium, firefox, webkit)'
+        required: true
+        default: 'chromium'
 jobs:
   test:
     runs-on: ubuntu-latest
