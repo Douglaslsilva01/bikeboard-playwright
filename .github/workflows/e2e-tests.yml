@@ -33,7 +33,7 @@ jobs:
         run: npx playwright install --with-deps ${{ github.event.inputs.browser }}
 
       - name: Run E2E tests
-        run: BASE_URL=${{ github.event.inputs.base_url }} npx playwright test --project=${{ github.event.inputs.browser || 'chromium' }}
+        run: BASE_URL=${{ github.event.inputs.base_url || 'ENDERECO_PADRAO' }} npx playwright test --project=${{ github.event.inputs.browser || 'chromium' }}
 
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
